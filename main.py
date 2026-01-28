@@ -11,16 +11,15 @@ app = FastAPI()
 
 # --- CONFIGURATION ---
 URL = os.getenv('PUB-IMG-URL')
-IMG_API_KEY = os.getenv('PUB-IMG-API-KEY') 
+IMG_API_KEY = os.getenv('PUB-IMG-API-KEY')
+COL_KEY = os.getenv('PUB-COL-KEY') 
 BEARER_AUTH_KEY = os.getenv('BEARER_AUTH_KEY', 'BEARER_AUTH_KEY')
 
 auth_scheme = HTTPBearer()
 
 # --- SECURITY LOGIC ---
 def validate_bearer_token(credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)):
-    """
-    ตรวจสอบว่า Token ที่ส่งมาใน Header ตรงกับที่เราตั้งไว้หรือไม่
-    """
+
     if credentials.credentials != BEARER_AUTH_KEY:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -74,7 +73,7 @@ def upload_to_oneweb(final_b64: str) -> dict:
 
     
     payload = {
-        'collection': 'PromptXAI',
+        'collection': COL_KEY,
         'key': IMG_API_KEY
     }
     files = [('file', (file_name, jpeg_binary_data, 'image/jpeg'))]
