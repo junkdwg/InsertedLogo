@@ -12,7 +12,6 @@ app = FastAPI()
 # --- CONFIGURATION ---
 URL = os.getenv('PUB-IMG-URL')
 IMG_API_KEY = os.getenv('PUB-IMG-API-KEY')
-COL_KEY = os.getenv('PUB-COL-KEY') 
 BEARER_AUTH_KEY = os.getenv('BEARER_AUTH_KEY', 'BEARER_AUTH_KEY')
 
 auth_scheme = HTTPBearer()
@@ -73,7 +72,7 @@ def upload_to_oneweb(final_b64: str) -> dict:
 
     
     payload = {
-        'collection': COL_KEY,
+        'collection': 'PromptXAI',
         'key': IMG_API_KEY
     }
     files = [('file', (file_name, jpeg_binary_data, 'image/jpeg'))]
