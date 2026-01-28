@@ -90,7 +90,7 @@ def upload_to_oneweb(final_b64: str) -> dict:
 
 @app.post("/overlay-logo", response_model=ImageOverlayResponse)
 async def overlay_api(request: ImageUrlRequest, _=Depends(validate_bearer_token)):
-
+    print(f"DEBUG: Received request: {request.dict()}")
     try:
         bg_b64 = get_as_base64(request.image_url)
         logo_b64 = get_as_base64(request.logo_url)
