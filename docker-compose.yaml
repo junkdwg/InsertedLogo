@@ -2,6 +2,3 @@ services:
   backend:
     build: .
     env_file: .env
-
-# How to run 
-# docker compose up --build
