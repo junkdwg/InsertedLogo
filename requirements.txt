@@ -2,3 +2,7 @@ fastapi[standard]
 pydantic
 Pillow
 requests
+python-dotenv
+uvicorn
+pytest
+httpx
