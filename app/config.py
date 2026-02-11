@@ -13,6 +13,6 @@ BEARER_AUTH_KEY = os.getenv('BEARER_AUTH_KEY')
 # Application Configuration
 IMG_UPLOAD_TIMEOUT = 30  # seconds
 IMG_FETCH_TIMEOUT = 10  # seconds
-LOGO_WIDTH_PERCENTAGE = 0.20  # 20% of background image width
+LOGO_WIDTH_PERCENTAGE = 0.40  # 20% of background image width
 LOGO_PADDING = 20  # pixels
 JPEG_QUALITY = 90
